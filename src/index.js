@@ -48,4 +48,7 @@ document.querySelectorAll(keysSelector).forEach((pianoKey, index) => {
     pianoKey.classList.remove("pressed");
     music.currentTime = 0;
   });
+  pianoKey.addEventListener("mouseleave", () => {
+    pianoKey.classList.remove("pressed");
+  });
 });
