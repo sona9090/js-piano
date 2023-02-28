@@ -33,5 +33,11 @@ document.querySelectorAll(keysSelector).forEach((pianoKey, index) => {
   const music = pianoKey.querySelector("audio");
 
   pianoKey.addEventListener("mousedown", () => music.play());
-  pianoKey.addEventListener("mouseup", () => music.pause());
+  pianoKey.addEventListener("touchstart", () => music.play());
+  pianoKey.addEventListener("mouseup", () => {
+    music.currentTime = 0;
+  });
+  pianoKey.addEventListener("touchend", () => {
+    music.currentTime = 0;
+  });
 });
