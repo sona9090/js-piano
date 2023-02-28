@@ -32,12 +32,20 @@ document.querySelectorAll(keysSelector).forEach((pianoKey, index) => {
 
   const music = pianoKey.querySelector("audio");
 
-  pianoKey.addEventListener("mousedown", () => music.play());
-  pianoKey.addEventListener("touchstart", () => music.play());
+  pianoKey.addEventListener("mousedown", () => {
+    music.play();
+    pianoKey.classList.add("pressed");
+  });
+  pianoKey.addEventListener("touchstart", () => {
+    music.play();
+    pianoKey.classList.add("pressed");
+  });
   pianoKey.addEventListener("mouseup", () => {
+    pianoKey.classList.remove("pressed");
     music.currentTime = 0;
   });
   pianoKey.addEventListener("touchend", () => {
+    pianoKey.classList.remove("pressed");
     music.currentTime = 0;
   });
 });
